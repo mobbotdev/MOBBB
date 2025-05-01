@@ -56,7 +56,7 @@ def setrecord(update, context):
 
 def vip(update, context):
     update.message.reply_text("To join the VIP group, visit: http://patreon.com/ReeskiDPM") 
-    def units(update, context):
+def units(update, context):
     update.message.reply_text("""Unit sizing tips:
 - 1 to 5 units based on confidence
 - Increase unit size every 35 units gained
