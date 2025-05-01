@@ -55,9 +55,7 @@ def setrecord(update, context):
         update.message.reply_text("You're not authorized to update the record.")
 
 def vip(update, context):
-    update.message.reply_text("To join the VIP group, visit:
-https://patreon.com/ReeskiDPM")
-
+    update.message.reply_text("To join the VIP group, visit: http://patreon.com/ReeskiDPM")
 def units(update, context):
     update.message.reply_text("Unit sizing tips:
 - 1 to 5 units based on confidence
