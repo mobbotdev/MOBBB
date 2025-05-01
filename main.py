@@ -55,14 +55,9 @@ def setrecord(update, context):
         update.message.reply_text("You're not authorized to update the record.")
 
 def vip(update, context):
-    update.message.reply_text("To join the VIP group, visit: http://patreon.com/ReeskiDPM")
-def units(update, context):
-    update.message.reply_text("Unit sizing tips: Here’s some advice on how to size your bets and manage your bankroll effectively.")
-- update.message.reply_text("""Unit sizing tips:
-- 1 to 5 units based on confidence
-- Bet higher when confident
-- Track your progress""")
-update.message.reply_text("""Unit sizing tips:
+    update.message.reply_text("To join the VIP group, visit: http://patreon.com/ReeskiDPM") 
+    def units(update, context):
+    update.message.reply_text("""Unit sizing tips:
 - 1 to 5 units based on confidence
 - Increase unit size every 35 units gained
 - Stick to 2% of bankroll per unit""")
