@@ -1,8 +1,8 @@
-
+import os
 from telegram.ext import Updater, CommandHandler
 
 # Your bot token
-TOKEN = '8028698920:AAFn6NqP2O5mNCypQGp8TqYgaKaNqtEDeXY'
+TOKEN = os.getenv("BOT_TOKEN")
 
 # Your Telegram user ID (admin)
 ADMIN_ID = 1975772726
