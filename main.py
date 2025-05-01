@@ -86,8 +86,7 @@ Digital Profit Mob is a premium betting and finance community focused on discipl
 """)
 
 def support(update, context):
-    update.message.reply_text("Need help? Contact us on IG:
-https://www.instagram.com/digitalprofitmob?igsh=MzB4OWRtYnp6YXo=")
+update.message.reply_text("Need help? Contact us on IG: https://www.instagram.com/digitalprofitmob/")
 
 # Set up the bot
 updater = Updater(token=TOKEN, use_context=True)
