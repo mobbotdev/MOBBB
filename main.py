@@ -62,8 +62,10 @@ def units(update, context):
 - 1 to 5 units based on confidence
 - Bet higher when confident
 - Track your progress""")
-- Stick to 2% of bankroll per unit
-update.message.reply_text("Unit sizing tips:\n- Increase unit size every 35 units gained")
+update.message.reply_text("""Unit sizing tips:
+- 1 to 5 units based on confidence
+- Increase unit size every 35 units gained
+- Stick to 2% of bankroll per unit""")
 
 def rules(update, context):
     update.message.reply_text("""
