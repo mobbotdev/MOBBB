@@ -1,14 +1,15 @@
 {
-  "name": "digital-profit-mob-bot",
+  "name": "telegram-sports-betting-bot",
   "version": "1.0.0",
-  "description": "Free sports betting Telegram bot for Digital Profit Mob",
+  "description": "Telegram bot for free sports betting picks and records",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.61.0",
-    "dotenv": "^16.0.3"
-  }
+    "telegraf": "^4.4.0",
+    "node-fetch": "^2.6.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }
-ls package.json
