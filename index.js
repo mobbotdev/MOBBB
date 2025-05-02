@@ -1,16 +1,22 @@
 const TelegramBot = require('node-telegram-bot-api');
+const fs = require('fs');
 require('dotenv').config();
 
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
-
-// Admin Telegram user ID
 const ADMIN_ID = '1975772726';
+const DATA_FILE = './data.json';
 
-// Default values
-let recordText = 'No record has been set yet.';
-let picksText = 'No picks available yet.';
+// Helper to read data
+function readData() {
+  const data = fs.readFileSync(DATA_FILE);
+  return JSON.parse(data);
+}
 
-// Public commands
+// Helper to write data
+function writeData(newData) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(newData, null, 2));
+}
+
 bot.onText(/\/start/, (msg) => {
   bot.sendMessage(msg.chat.id, "Welcome to Digital Profit Mob!\nUse /help to see available commands.");
 });
@@ -31,11 +37,13 @@ bot.onText(/\/help/, (msg) => {
 });
 
 bot.onText(/\/picks/, (msg) => {
-  bot.sendMessage(msg.chat.id, picksText);
+  const { picks } = readData();
+  bot.sendMessage(msg.chat.id, picks);
 });
 
 bot.onText(/\/record/, (msg) => {
-  bot.sendMessage(msg.chat.id, recordText);
+  const { record } = readData();
+  bot.sendMessage(msg.chat.id, record);
 });
 
 bot.onText(/\/vip/, (msg) => {
@@ -62,11 +70,13 @@ bot.onText(/\/support/, (msg) => {
   bot.sendMessage(msg.chat.id, "Need help? DM the admin at http://link.me/reemoney");
 });
 
-// Admin-only commands
+// Admin-only updates
 bot.onText(/\/setrecord (.+)/, (msg, match) => {
   if (msg.from.id.toString() === ADMIN_ID) {
-    recordText = match[1];
-    bot.sendMessage(msg.chat.id, "Record updated.");
+    const data = readData();
+    data.record = match[1];
+    writeData(data);
+    bot.sendMessage(msg.chat.id, "Record updated and saved.");
   } else {
     bot.sendMessage(msg.chat.id, "You are not authorized to use this command.");
   }
@@ -74,8 +84,10 @@ bot.onText(/\/setrecord (.+)/, (msg, match) => {
 
 bot.onText(/\/setpicks (.+)/, (msg, match) => {
   if (msg.from.id.toString() === ADMIN_ID) {
-    picksText = match[1];
-    bot.sendMessage(msg.chat.id, "Picks updated.");
+    const data = readData();
+    data.picks = match[1];
+    writeData(data);
+    bot.sendMessage(msg.chat.id, "Picks updated and saved.");
   } else {
     bot.sendMessage(msg.chat.id, "You are not authorized to use this command.");
   }
