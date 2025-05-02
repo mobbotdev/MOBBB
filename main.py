@@ -91,3 +91,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Bot running on port ${PORT}`);
 });
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
