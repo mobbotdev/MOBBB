@@ -13,3 +13,8 @@
   "author": "Your Name",
   "license": "MIT"
 }
+"dependencies": {
+  "telegraf": "^4.4.0",
+  "node-fetch": "^2.6.1",
+  "dotenv": "^10.0.0"
+}
